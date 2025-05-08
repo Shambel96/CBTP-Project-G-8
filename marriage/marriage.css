@@ -1,0 +1,377 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f9f4e8;
+  margin: 0;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Certificate Container */
+.certificate-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.certificate-border {
+  border: 20px solid #8b4513;
+  background-color: #fffaf0;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Corner Images */
+.corner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-image: url("https://i.imgur.com/JQJQJQJ.png"); /* Replace with your corner image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.corner-tl {
+  top: -10px;
+  left: -10px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,100H0V0C20,20,40,40,60,60,80,80,100,100,100,100Z"/></svg>');
+}
+
+.corner-tr {
+  top: -10px;
+  right: -10px;
+  transform: rotate(90deg);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,100H0V0C20,20,40,40,60,60,80,80,100,100,100,100Z"/></svg>');
+}
+
+.corner-bl {
+  bottom: -10px;
+  left: -10px;
+  transform: rotate(270deg);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,100H0V0C20,20,40,40,60,60,80,80,100,100,100,100Z"/></svg>');
+}
+
+.corner-br {
+  bottom: -10px;
+  right: -10px;
+  transform: rotate(180deg);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,100H0V0C20,20,40,40,60,60,80,80,100,100,100,100Z"/></svg>');
+}
+
+/* Header Styles */
+/* Header Styles */
+.certificate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+  padding: 20px 0;
+}
+
+.certificate-header h1 {
+  flex-grow: 1;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  color: #5a3921;
+  margin: 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Seal Styles */
+.seal-left,
+.seal-right {
+  flex-shrink: 0;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.seal {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #c0a080;
+  border-radius: 50%;
+  background: #fffaf0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
+  background-image: url("download (1).jfif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Alternative if you want to keep the star but add your image */
+.seal-with-image {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #c0a080;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f9f4e8 40%, #e8d9c5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.seal-with-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("download.jfif");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+.seal-with-image::after {
+  content: "✧";
+  font-size: 2.5rem;
+  color: #8b4513;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Ribbon effect for seals */
+.seal::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 15px;
+  background: #8b4513;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .certificate-header h1 {
+    font-size: 2rem;
+    margin: 0 10px;
+  }
+
+  .seal {
+    width: 60px;
+    height: 60px;
+  }
+
+  .seal-with-image::after {
+    font-size: 2rem;
+  }
+}
+
+/* Body Styles */
+.certificate-body {
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.intro,
+.declaration,
+.location {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.couple-names {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.name {
+  flex: 1;
+  min-width: 250px;
+  margin: 15px;
+}
+
+.name h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: #5a3921;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e0c9b1;
+  padding-bottom: 10px;
+}
+
+.title {
+  font-size: 1rem;
+  color: #8b4513;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.and {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  color: #c0a080;
+  margin: 0 20px;
+}
+
+.date,
+.location span {
+  font-weight: bold;
+  color: #8b4513;
+}
+
+.officiant {
+  margin: 30px 0;
+  font-size: 1.1rem;
+}
+
+.officiant span {
+  font-weight: bold;
+  color: #5a3921;
+}
+
+.witnesses {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 40px 0;
+}
+
+.witness-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  border-top: 1px solid #e0c9b1;
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
+.witness-title {
+  font-size: 0.9rem;
+  color: #8b4513;
+}
+
+/* Footer Styles */
+.certificate-footer {
+  margin-top: 50px;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.signature {
+  text-align: center;
+}
+
+.signature-line {
+  width: 200px;
+  height: 1px;
+  background-color: #000;
+  margin: 0 auto 5px;
+}
+
+.certificate-number {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.certificate-number span {
+  font-weight: bold;
+}
+
+/* Decorative Elements */
+.certificate-border:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #e0c9b1;
+  pointer-events: none;
+}
+
+.certificate-border {
+  background-image: repeating-linear-gradient(
+      -15deg,
+      transparent,
+      transparent 100px,
+      rgba(192, 160, 128, 0.05) 100px,
+      rgba(192, 160, 128, 0.05) 200px
+    ),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><text x="20" y="40" font-family="Dancing Script" font-size="20" fill="rgba(192, 160, 128, 0.1)" transform="rotate(-15)">Happy Marriage</text></svg>');
+  background-repeat: repeat;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .certificate-border {
+    padding: 20px;
+    border-width: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .couple-names {
+    flex-direction: column;
+  }
+
+  .and {
+    margin: 15px 0;
+  }
+
+  .witnesses {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .signatures {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .seal {
+    width: 60px;
+    height: 60px;
+  }
+
+  .seal:before {
+    font-size: 2rem;
+  }
+
+  .corner {
+    width: 50px;
+    height: 50px;
+  }
+}

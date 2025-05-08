@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Residence Information</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom CSS */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+      .form-container {
+        max-width: 700px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+      .form-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="form-container">
+        <h1 class="form-title">Residence Information</h1>
+        <form id="residenceForm">
+          <!-- Full Name -->
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fullName"
+              name="fullName"
+              placeholder="John Doe"
+              required
+            />
+          </div>
+
+          <!-- Phone Number -->
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              name="phone"
+              placeholder="+251912345678"
+              required
+            />
+          </div>
+
+          <!-- National ID -->
+          <div class="mb-3">
+            <label for="nationalId" class="form-label">National ID</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nationalId"
+              name="nationalId"
+              placeholder="1234567890123"
+              required
+            />
+          </div>
+
+          <!-- Subcity -->
+          <div class="mb-3">
+            <label for="subcity" class="form-label">Subcity</label>
+            <input
+              type="text"
+              class="form-control"
+              id="subcity"
+              name="subcity"
+              placeholder="Jimma Subcity"
+              required
+            />
+          </div>
+
+          <!-- Kebele -->
+          <div class="mb-3">
+            <label for="kebele" class="form-label">Kebele</label>
+            <input
+              type="text"
+              class="form-control"
+              id="kebele"
+              name="kebele"
+              placeholder="05"
+              required
+            />
+          </div>
+
+          <!-- House Number -->
+          <div class="mb-3">
+            <label for="houseNumber" class="form-label">House Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="houseNumber"
+              name="houseNumber"
+              placeholder="123"
+              required
+            />
+          </div>
+
+          <!-- Address -->
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea
+              class="form-control"
+              id="address"
+              name="address"
+              rows="3"
+              placeholder="Kebele 05, House 123, near XYZ"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Certificate Type -->
+          <div class="mb-3">
+            <!-- <label for="certificateType" class="form-label">Certificate Type</label>
+            <select class="form-select" id="certificateType" name="certificateType" required>
+              <option value="">Select Certificate Type</option>
+              <option value="birth">Birth</option>
+              <option value="death">Death</option>
+              <option value="marriage">Marriage</option>
+            </select> -->
+          </div>
+
+          <!-- Certificate ID -->
+          <!-- <div class="mb-3">
+            <label for="certificateId" class="form-label">Certificate ID</label>
+            <input
+              type="text"
+              class="form-control"
+              id="certificateId"
+              name="certificateId"
+              placeholder="456"
+              required
+            />
+          </div> -->
+
+          <!-- Permission Status -->
+          <!-- <div class="mb-3">
+            <label for="permission" class="form-label">Permission Status</label>
+            <select
+              class="form-select"
+              id="permission"
+              name="permission"
+              required
+            >
+              <option value="">Select Permission</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div> -->
+
+          <!-- Reason for Residence -->
+          <div class="mb-3">
+            <label for="reason" class="form-label">Reason for Residence</label>
+            <input
+              type="text"
+              class="form-control"
+              id="reason"
+              name="reason"
+              placeholder="Work"
+              required
+            />
+          </div>
+
+          <!-- Date of Residency -->
+          <div class="mb-3">
+            <label for="dateOfResidency" class="form-label"
+              >Date of Residency</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="dateOfResidency"
+              name="dateOfResidency"
+              value="2025-01-01"
+              required
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("residenceForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const formData = {
+            fullName: document.getElementById("fullName").value,
+            phone: document.getElementById("phone").value,
+            nationalId: document.getElementById("nationalId").value,
+            subcity: document.getElementById("subcity").value,
+            kebele: document.getElementById("kebele").value,
+            houseNumber: document.getElementById("houseNumber").value,
+            address: document.getElementById("address").value,
+            certificateType: document.getElementById("certificateType").value,
+            certificateId: document.getElementById("certificateId").value,
+            permission: document.getElementById("permission").value,
+            reason: document.getElementById("reason").value,
+            dateOfResidency: document.getElementById("dateOfResidency").value,
+          };
+        });
+    </script>
+  </body>
+</html>

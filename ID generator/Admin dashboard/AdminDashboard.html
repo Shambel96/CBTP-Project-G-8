@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID Generator Admin Dashboard</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      .dashboard {
+        position: fixed;
+        width: 75%;
+        text-align: center;
+        font-size: 20px;
+        background-color: blue;
+        color: aliceblue;
+        padding: 20px;
+        border-radius: 20px;
+      }
+      .left-fixed {
+        position: fixed;
+        background-color: #f8f8ff;
+        width: 20%;
+        height: 100%;
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 7px;
+        padding: 20px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .left-fixed h2 {
+        text-align: center;
+        color: blue;
+        font-size: 30px;
+        text-shadow: #f8f8ff;
+        margin-bottom: 20px;
+      }
+      .left-fixed ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .left-fixed li {
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #e0e0e0;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .left-fixed li:hover {
+        background-color: #d0d0d0;
+      }
+      .main-content {
+        margin-left: 22%;
+        padding: 20px;
+      }
+      .form-section {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .form-section h2 {
+        margin-bottom: 10px;
+      }
+      .form-section input,
+      .form-section select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .form-section button {
+        background-color: blue;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .form-section button:hover {
+        background-color: darkblue;
+      }
+      .resident-list {
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .resident-list th,
+      .resident-list td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+      .resident-list th {
+        background-color: #f2f2f2;
+      }
+      .edit-btn,
+      .delete-btn {
+        padding: 5px 10px;
+        cursor: pointer;
+        color: white;
+        border-radius: 10px;
+      }
+      .edit-btn {
+        background-color: green;
+      }
+      .delete-btn {
+        background-color: red;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left-fixed">
+      <h2>GINJO</h2>
+      <ul>
+        <li><a href="#generate-id">Generate ID</a></li>
+        <li><a href="#manage-residents">Manage Residents</a></li>
+        <li><a href="#view-reports">View Reports</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#logout">Logout</a></li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <div class="dashboard">
+        <h1>Welcome to Admin Dashboard</h1>
+      </div>
+
+      <div id="generate-id" class="form-section">
+        <h2>Generate ID</h2>
+        <form>
+          <input type="text" placeholder="Full Name" required />
+          <input type="text" placeholder="Address" required />
+          <input type="text" placeholder="Town" required />
+          <input type="text" placeholder="Region" required />
+          <input type="date" placeholder="Date of Birth" required />
+          <select required>
+            <option value="">Select ID Type</option>
+            <option value="national">National ID</option>
+            <option value="local">Local Residence ID</option>
+          </select>
+          <button type="submit">Generate ID</button>
+        </form>
+      </div>
+
+      <div id="manage-residents" class="form-section">
+        <h2>Manage Residents</h2>
+        <form id="resident-form">
+          <input type="hidden" id="resident-id" />
+          <input
+            type="text"
+            id="resident-name"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            type="text"
+            id="resident-address"
+            placeholder="Address"
+            required
+          />
+          <input type="text" id="resident-town" placeholder="Town" required />
+          <input
+            type="text"
+            id="resident-region"
+            placeholder="Region"
+            required
+          />
+          <input
+            type="date"
+            id="resident-dob"
+            placeholder="Date of Birth"
+            required
+          />
+          <button type="submit">Add/Update Resident</button>
+        </form>
+        <table class="resident-list">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Town</th>
+              <th>Region</th>
+              <th>Date of Birth</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="resident-table-body">
+            <!-- Resident entries will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="view-reports" class="form-section">
+        <h2>View Reports</h2>
+        <p>
+          Functionality to generate and view reports on IDs issued, resident
+          statistics, etc.
+        </p>
+      </div>
+      <div id="settings" class="form-section">
+        <h2>Settings</h2>
+        <p>Manage system settings and user preferences here.</p>
+      </div>
+    </div>
+
+    <script>
+      let residents = [];
+      const residentForm = document.getElementById("resident-form");
+      const residentTableBody = document.getElementById("resident-table-body");
+
+      residentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const id = document.getElementById("resident-id").value;
+        const name = document.getElementById("resident-name").value;
+        const address = document.getElementById("resident-address").value;
+        const town = document.getElementById("resident-town").value;
+        const region = document.getElementById("resident-region").value;
+        const dob = document.getElementById("resident-dob").value;
+
+        if (id) {
+          // Edit existing resident
+          const residentIndex = residents.findIndex((res) => res.id === id);
+          residents[residentIndex] = { id, name, address, town, region, dob };
+        } else {
+          // Add new resident
+          const newResident = {
+            id: Date.now().toString(),
+            name,
+            address,
+            town,
+            region,
+            dob,
+          };
+          residents.push(newResident);
+        }
+
+        residentForm.reset();
+        loadResidents();
+      });
+
+      function loadResidents() {
+        residentTableBody.innerHTML = "";
+        residents.forEach((resident) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                    <td>${resident.name}</td>
+                    <td>${resident.address}</td>
+                    <td>${resident.town}</td>
+                    <td>${resident.region}</td>
+                    <td>${resident.dob}</td>
+                    <td>
+                        <span class="edit-btn" onclick="editResident('${resident.id}')">Edit</span>
+                        | 
+                        <span class="delete-btn" onclick="deleteResident('${resident.id}')">Delete</span>
+                    </td>
+                `;
+          residentTableBody.appendChild(row);
+        });
+      }
+
+      function editResident(id) {
+        const resident = residents.find((res) => res.id === id);
+        document.getElementById("resident-id").value = resident.id;
+        document.getElementById("resident-name").value = resident.name;
+        document.getElementById("resident-address").value = resident.address;
+        document.getElementById("resident-town").value = resident.town;
+        document.getElementById("resident-region").value = resident.region;
+        document.getElementById("resident-dob").value = resident.dob;
+      }
+
+      function deleteResident(id) {
+        residents = residents.filter((res) => res.id !== id);
+        loadResidents();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Standard Size Ethiopian ID Card</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      /* Standard ID card dimensions: 85.6mm × 54mm */
+      .id-card {
+        width: 340px; /* ~3.375in at 96dpi */
+        height: 214px; /* ~2.125in at 96dpi */
+        margin: 10px 0;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        position: relative;
+        transform: scale(1); /* Actual size for printing */
+        transform-origin: top left;
+      }
+
+      /* Print settings */
+      @media print {
+        body {
+          background: none;
+          padding: 0;
+        }
+        .id-card {
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+        .no-print {
+          display: none;
+        }
+      }
+
+      /* Front ID Card */
+      .front-ID-container {
+        background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+        position: relative;
+        height: 100%;
+      }
+
+      .header {
+        background: linear-gradient(
+          to right,
+          #078d46,
+          #078d46,
+          #da121a,
+          #da121a,
+          #0f47af,
+          #0f47af
+        );
+        padding: 6px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 28px;
+      }
+
+      .flag {
+        width: 30px;
+        height: 20px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+      }
+
+      .title {
+        color: white;
+        font-size: 10px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.2;
+      }
+
+      .photo-container {
+        width: 75px;
+        height: 85px;
+        margin: 8px;
+        border: 1px solid #078d46;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        float: left;
+      }
+
+      .photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .content {
+        padding: 5px;
+        height: calc(100% - 28px - 25px);
+        overflow: hidden;
+      }
+
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8px;
+        margin-left: 5px;
+      }
+
+      .info-table td {
+        padding: 2px;
+        vertical-align: top;
+        line-height: 1.2;
+      }
+
+      .label {
+        font-weight: bold;
+        color: #333;
+        white-space: nowrap;
+      }
+
+      .value {
+        color: #555;
+      }
+
+      .id-number {
+        background-color: #078d46;
+        color: white;
+        text-align: center;
+        padding: 4px;
+        font-weight: bold;
+        font-size: 9px;
+        letter-spacing: 0.5px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      /* Back ID Card */
+      .back-ID-container {
+        background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+        height: 100%;
+      }
+
+      .back-header {
+        background: linear-gradient(
+          to right,
+          #078d46,
+          #078d46,
+          #da121a,
+          #da121a,
+          #0f47af,
+          #0f47af
+        );
+        padding: 6px;
+        color: white;
+        font-size: 10px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 28px;
+      }
+
+      .back-content {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        height: calc(100% - 28px - 20px);
+      }
+
+      .back-photo {
+        width: 50px;
+        height: 60px;
+        border: 1px solid #078d46;
+        margin-left: 5px;
+      }
+
+      .qr-code {
+        width: 50px;
+        height: 50px;
+        margin: 5px auto;
+        display: block;
+        background-color: #fff;
+        padding: 2px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 3px;
+        font-size: 6px;
+        color: #777;
+        border-top: 1px dashed #ccc;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .security-features {
+        display: flex;
+        justify-content: space-around;
+        padding: 3px;
+        background-color: #f0f0f0;
+        border-top: 1px dashed #ccc;
+      }
+
+      .security-icon {
+        width: 12px;
+        height: 12px;
+        opacity: 0.7;
+      }
+
+      .watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+        font-weight: bold;
+        color: rgba(7, 141, 70, 0.1);
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .controls {
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+      }
+
+      button {
+        padding: 5px 10px;
+        margin: 0 5px;
+        background-color: #078d46;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls no-print">
+      <button onclick="window.print()">Print ID Card</button>
+      <button onclick="generateNewID()">Generate New ID</button>
+    </div>
+
+    <div class="id-card front-ID-container">
+      <div class="watermark">ETHIOPIA</div>
+
+      <div class="header">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ethiopia.svg"
+          alt="Ethiopia Flag"
+          class="flag"
+        />
+        <div class="title">
+          Federal Democratic Republic of Ethiopia<br />Residence Identification
+          Card
+        </div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Flag_of_the_Oromia_Region.svg/1200px-Flag_of_the_Oromia_Region.svg.png"
+          alt="Oromia Flag"
+          class="flag"
+        />
+      </div>
+
+      <div class="content">
+        <div class="photo-container">
+          <img
+            src="https://via.placeholder.com/75x85"
+            alt="User Photo"
+            class="photo"
+            id="userPhoto"
+          />
+        </div>
+
+        <table class="info-table">
+          <tr>
+            <td class="label">Name:</td>
+            <td class="value" id="fullName">Shambel Dechu Teku</td>
+          </tr>
+          <tr>
+            <td class="label">Name (አማ):</td>
+            <td class="value" id="fullNameAmharic">ሻምበል ደቹ ተኩ</td>
+          </tr>
+          <tr>
+            <td class="label">Nationality:</td>
+            <td class="value">Ethiopian</td>
+          </tr>
+          <tr>
+            <td class="label">Gender:</td>
+            <td class="value" id="gender">Male</td>
+          </tr>
+          <tr>
+            <td class="label">Date of Birth:</td>
+            <td class="value" id="dob">05/05/1996</td>
+          </tr>
+          <tr>
+            <td class="label">Address:</td>
+            <td class="value" id="address">Ginjo, Jimma, Oromia</td>
+          </tr>
+          <tr>
+            <td class="label">Kebele:</td>
+            <td class="value" id="kebele">05</td>
+          </tr>
+          <tr>
+            <td class="label">House No:</td>
+            <td class="value" id="houseNumber">564G</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="id-number" id="idNumber">OR-05-960505-1234</div>
+    </div>
+
+    <div class="id-card back-ID-container">
+      <div class="watermark">ETHIOPIA</div>
+
+      <div class="back-header">Ginjo Town Administration</div>
+
+      <div class="back-content">
+        <div style="width: 70%">
+          <table class="info-table">
+            <tr>
+              <td class="label">Mother's Name:</td>
+              <td class="value" id="motherName">Simelo Nege'o</td>
+            </tr>
+            <tr>
+              <td class="label">Mother (አማ):</td>
+              <td class="value" id="motherNameAmharic">ስሜሎ ነገኦ</td>
+            </tr>
+            <tr>
+              <td class="label">Father's Name:</td>
+              <td class="value" id="fatherName">Dechu Teku</td>
+            </tr>
+            <tr>
+              <td class="label">Father (አማ):</td>
+              <td class="value" id="fatherNameAmharic">ደቹ ተኩ</td>
+            </tr>
+            <tr>
+              <td class="label">Occupation:</td>
+              <td class="value" id="occupation">Student</td>
+            </tr>
+            <tr>
+              <td class="label">Marital Status:</td>
+              <td class="value" id="maritalStatus">Single</td>
+            </tr>
+            <tr>
+              <td class="label">Issue Date:</td>
+              <td class="value" id="issueDate">01/01/2023</td>
+            </tr>
+            <tr>
+              <td class="label">Expiry Date:</td>
+              <td class="value" id="expiryDate">01/01/2025</td>
+            </tr>
+          </table>
+
+          <div class="security-features">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2913/2913104.png"
+              alt="Hologram"
+              class="security-icon"
+              title="Hologram"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2913/2913167.png"
+              alt="Microprint"
+              class="security-icon"
+              title="Microprint"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2913/2913155.png"
+              alt="UV"
+              class="security-icon"
+              title="UV Feature"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2913/2913173.png"
+              alt="Barcode"
+              class="security-icon"
+              title="Barcode"
+            />
+          </div>
+        </div>
+
+        <div style="width: 30%">
+          <img
+            src="https://via.placeholder.com/50x60"
+            alt="User Photo"
+            class="back-photo"
+          />
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=ETH-ID-OR-05-960505-1234"
+            alt="QR Code"
+            class="qr-code"
+            id="qrCode"
+          />
+        </div>
+      </div>
+
+      <div class="footer">
+        This card is property of the Federal Democratic Republic of Ethiopia<br />
+        Valid for 2 years from date of issue | If found, please return to
+        nearest police station
+      </div>
+    </div>
+
+    <script>
+      // Sample data for Ethiopian names
+      const sampleAmharicNames = {
+        male: ["ሻምበል", "ተስፋዬ", "ደቀማ", "መኮንን", "ብርሃኑ"],
+        female: ["ማርያም", "ዘሪት", "ተስፋሚካኤል", "ሐና", "ሰላም"],
+        lastNames: ["ተኩ", "አለሙ", "ደምሴ", "ገብረመድህን", "ታደሰ"],
+      };
+
+      // ID Card Data
+      const idData = {
+        fullName: "Shambel Dechu Teku",
+        fullNameAmharic: "ሻምበል ደቹ ተኩ",
+        gender: "Male",
+        dob: "05/05/1996",
+        address: "Ginjo, Jimma, Oromia",
+        kebele: "05",
+        houseNumber: "564G",
+        motherName: "Simelo Nege'o",
+        motherNameAmharic: "ስሜሎ ነገኦ",
+        fatherName: "Dechu Teku",
+        fatherNameAmharic: "ደቹ ተኩ",
+        occupation: "Student",
+        maritalStatus: "Single",
+        issueDate: "01/01/2023",
+        expiryDate: "01/01/2025",
+        idNumber: "OR-05-960505-1234",
+      };
+
+      // Function to generate random Ethiopian name
+      function generateEthiopianName(gender) {
+        const firstNames = sampleAmharicNames[gender.toLowerCase()];
+        const lastNames = sampleAmharicNames.lastNames;
+
+        const englishName = `${
+          gender === "Male" ? "Male" : "Female"
+        } Name ${Math.floor(Math.random() * 100)}`;
+        const amharicName = `${
+          firstNames[Math.floor(Math.random() * firstNames.length)]
+        } ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
+
+        return {
+          english: englishName,
+          amharic: amharicName,
+        };
+      }
+
+      // Function to generate random date in dd/mm/yyyy format
+      function randomDate(start, end) {
+        const date = new Date(
+          start.getTime() + Math.random() * (end.getTime() - start.getTime())
+        );
+        const day = String(date.getDate()).padStart(2, "0");
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      }
+
+      // Function to populate ID card with data
+      function populateIDCard() {
+        // Set all fields from the idData object
+        for (const [key, value] of Object.entries(idData)) {
+          const element = document.getElementById(key);
+          if (element) {
+            element.textContent = value;
+          }
+        }
+
+        // Update QR code with ID number
+        const qrCode = document.getElementById("qrCode");
+        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=ETH-ID-${idData.idNumber}`;
+
+        // Set current year in footer
+        document.querySelector(
+          ".footer"
+        ).innerHTML += `<br>© ${new Date().getFullYear()} FDRE Government`;
+      }
+
+      // Function to generate a random ID number (for demo purposes)
+      function generateIDNumber() {
+        const regionCode = "OR";
+        const kebeleCode = idData.kebele.padStart(2, "0");
+        const dobParts = idData.dob.split("/");
+        const dobCode = `${dobParts[2].slice(-2)}${dobParts[1].padStart(
+          2,
+          "0"
+        )}${dobParts[0].padStart(2, "0")}`;
+        const randomCode = Math.floor(1000 + Math.random() * 9000);
+
+        return `${regionCode}-${kebeleCode}-${dobCode}-${randomCode}`;
+      }
+
+      // Function to generate new random ID
+      function generateNewID() {
+        const gender = Math.random() > 0.5 ? "Male" : "Female";
+        const name = generateEthiopianName(gender);
+
+        idData.fullName = name.english;
+        idData.fullNameAmharic = name.amharic;
+        idData.gender = gender;
+        idData.dob = randomDate(new Date(1970, 0, 1), new Date(2005, 0, 1));
+        idData.kebele = Math.floor(1 + Math.random() * 20).toString();
+        idData.houseNumber = `${Math.floor(
+          100 + Math.random() * 900
+        )}${String.fromCharCode(65 + Math.floor(Math.random() * 26))}`;
+
+        const motherName = generateEthiopianName("Female");
+        idData.motherName = motherName.english;
+        idData.motherNameAmharic = motherName.amharic;
+
+        const fatherName = generateEthiopianName("Male");
+        idData.fatherName = fatherName.english;
+        idData.fatherNameAmharic = fatherName.amharic;
+
+        const occupations = [
+          "Student",
+          "Farmer",
+          "Teacher",
+          "Merchant",
+          "Government Employee",
+          "Driver",
+        ];
+        idData.occupation =
+          occupations[Math.floor(Math.random() * occupations.length)];
+
+        const maritalStatuses = ["Single", "Married", "Divorced", "Widowed"];
+        idData.maritalStatus =
+          maritalStatuses[Math.floor(Math.random() * maritalStatuses.length)];
+
+        const issueDate = new Date();
+        idData.issueDate = `${String(issueDate.getDate()).padStart(
+          2,
+          "0"
+        )}/${String(issueDate.getMonth() + 1).padStart(
+          2,
+          "0"
+        )}/${issueDate.getFullYear()}`;
+
+        const expiryDate = new Date(issueDate);
+        expiryDate.setFullYear(expiryDate.getFullYear() + 2);
+        idData.expiryDate = `${String(expiryDate.getDate()).padStart(
+          2,
+          "0"
+        )}/${String(expiryDate.getMonth() + 1).padStart(
+          2,
+          "0"
+        )}/${expiryDate.getFullYear()}`;
+
+        idData.idNumber = generateIDNumber();
+
+        populateIDCard();
+      }
+
+      // Initialize the ID card when page loads
+      window.onload = function () {
+        populateIDCard();
+      };
+    </script>
+  </body>
+</html>

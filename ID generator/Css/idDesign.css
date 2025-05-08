@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.front-ID-container,
+.back-ID-container {
+  width: 90%;
+  max-width: 400px; /* Maintain a max width for larger screens */
+  height: 200px; /* Fixed height */
+  background-color: #f4f4f4;
+  border-radius: 7px;
+  margin: 20px auto; /* Center the containers */
+  position: relative; /* Allows absolute positioning of children */
+  padding: 5px;
+  overflow: hidden; /* Enable scrolling for overflow content */
+}
+
+table tr td {
+  font-size: 13px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.flex-for-image-and-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container {
+  max-width: 25%;
+}
+
+.logo-container-flags {
+  display: flex;
+  justify-content: space-between;
+  background-color: gray;
+  padding: 5px;
+  border-radius: 7px 7px 0 0;
+}
+
+.flag {
+  width: 30%;
+}
+.flag img {
+  border-radius: 8px;
+}
+.ginjo-info h1 {
+  font-size: 15px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.back-header {
+  background-color: gray;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 10px;
+  border-radius: 7px 7px 0 0;
+  text-align: center;
+}
+
+.information-container-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.note {
+  position: relative;
+  top: 25%;
+  text-align: center;
+  font-size: 15px;
+  color: brown;
+  font-weight: 700;
+  font-weight: 400;
+}
+.back-image-container img {
+  max-width: 10%;
+  display: none;
+}
+.watermark {
+  opacity: 0.1;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  font-size: 50px;
+  transform: rotate(-27deg);
+}

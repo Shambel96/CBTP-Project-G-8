@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-color: #1e3a5f;
+  color: white;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+header ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 10px 120px;
+}
+header ul li a {
+  color: #f4f4f4;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+section {
+  max-width: 70%;
+  background: white;
+  margin: 100px auto 50px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-form h2 {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #5cb85c;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 40%;
+  float: right;
+}
+
+input[type="submit"]:hover {
+  background-color: #4cae4c;
+}
+footer {
+  background-color: #ccc;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px 0;
+  height: 100px;
+  font-weight: 500;
+}

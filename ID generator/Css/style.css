@@ -1,0 +1,166 @@
+/* General styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+.header {
+  background-color: #1e3a5f;
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Navigation styles */
+.nav-container ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-container a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+.nav-container a:hover {
+  color: orange;
+}
+.nav-container .active {
+  border-bottom: 2px solid yellow;
+  padding-bottom: 2px;
+}
+
+/* Dropdown menu styles */
+.position-relative {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  color: black;
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+.dropdown-menu li {
+  margin-bottom: 5px;
+}
+.dropdown-menu li:last-child {
+  margin-bottom: 0;
+}
+.dropdown-menu a {
+  color: black;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+.dropdown-menu a:hover {
+  color: orange;
+}
+.services-toggle:hover + .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+/* Button styles */
+.buttons-in-header button {
+  border-radius: 5px;
+  border: none;
+  text-transform: capitalize;
+  color: red;
+  background-color: orange;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* cascading of the first section
+ */
+.first-section {
+  /*   background-image: url("../images/bgc.png");
+ */
+  background-color: #1e3a5f;
+  color: #f8f9fa;
+  /*  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  height: 500px;
+  width: 100%;
+  border-bottom-right-radius: 100%;
+}
+/* .buttons-in-header button:hover {
+  background-color: white;
+  color: orange;
+} */
+.services-sidebar {
+  display: none;
+  top: 0;
+  left: 30%; /* Position the sidebar to the right of the "Services" link */
+  padding: 10px 0;
+  width: 200px;
+  border-radius: 5px;
+  z-index: 1050;
+}
+.read-more-btn button {
+  cursor: pointer;
+}
+/* Show Sidebar on Hover */
+.services-hover:hover .services-sidebar {
+  display: block;
+}
+
+.footer_ginjo a h1 {
+  color: orangered;
+  font-size: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.box-scale {
+  transform: scale(1.03s);
+}
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.third-section {
+  background-color: #f8f9fa; /* Light background */
+}
+.animated-text {
+  animation: fadeSlideIn 2s ease-out;
+  opacity: 0; /* Initially hidden */
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* Slide in from top */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
