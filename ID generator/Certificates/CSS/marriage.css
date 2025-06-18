@@ -1,0 +1,459 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f4e8;
+  background-image: radial-gradient(#e8d9c5 1px, transparent 1px);
+  background-size: 20px 20px;
+  margin: 0;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Certificate Container - Standard Letter/A4 Size */
+.certificate-container {
+  width: 8.5in;
+  height: 11in;
+  margin: 0 auto;
+  position: relative;
+  background: white;
+}
+
+.certificate-border {
+  border: 15px solid transparent;
+  padding: 0.5in;
+  position: relative;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: #fffaf0;
+  background-clip: padding-box;
+  border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="none" stroke="%238B4513" stroke-width="10"/><path d="M0,0 L30,0 L0,30 Z" fill="%238B4513"/><path d="M100,0 L70,0 L100,30 Z" fill="%238B4513"/><path d="M0,100 L0,70 L30,100 Z" fill="%238B4513"/><path d="M100,100 L70,100 L100,70 Z" fill="%238B4513"/></svg>')
+    25 round;
+}
+
+/* Corner Images - Smaller for standard size */
+.corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+}
+
+.corner-tl {
+  top: -3px;
+  left: -3px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M0,0 C50,50 50,50 100,0 L100,30 C60,50 60,50 30,100 L0,100 Z"/></svg>');
+}
+
+.corner-tr {
+  top: -3px;
+  right: -3px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,0 C50,50 50,50 0,0 L0,30 C40,50 40,50 70,100 L100,100 Z"/></svg>');
+}
+
+.corner-bl {
+  bottom: -3px;
+  left: -3px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M0,100 C50,50 50,50 0,0 L30,0 C50,40 50,40 100,70 L100,100 Z"/></svg>');
+}
+
+.corner-br {
+  bottom: -3px;
+  right: -3px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,100 C50,50 50,50 100,0 L70,0 C50,40 50,40 0,70 L0,100 Z"/></svg>');
+}
+
+/* Header Styles - Compact */
+.certificate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.certificate-header h1 {
+  flex-grow: 1;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: #5a3921;
+  margin: 0 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #8b4513, #c0a080, #8b4513);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Seal Styles - Smaller */
+.seal-left,
+.seal-right {
+  flex-shrink: 0;
+  width: 70px;
+}
+
+.seal {
+  width: 60px;
+  height: 60px;
+  border: 2px double #c0a080;
+  border-radius: 50%;
+  background-size: cover;
+  position: relative;
+}
+
+/* Body Styles - Compact */
+.certificate-body {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.intro,
+.declaration,
+.location {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.couple-names {
+  margin: 20px 0;
+}
+
+.name {
+  min-width: 200px;
+  margin: 10px;
+}
+
+.name h2 {
+  font-size: 1.5rem;
+  padding-bottom: 8px;
+}
+
+.title {
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.and {
+  font-size: 2rem;
+  margin: 0 15px;
+}
+
+/* Footer Styles - Compact */
+.certificate-footer {
+  margin-top: 30px;
+}
+
+.signatures {
+  margin-bottom: 20px;
+}
+
+.signature-line {
+  width: 150px;
+}
+
+/* Responsive Adjustments */
+@media print {
+  body {
+    background: none;
+    padding: 0;
+  }
+  .certificate-container {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .certificate-container {
+    width: 100%;
+    height: auto;
+    min-height: 11in;
+  }
+}
+body {
+  background-color: #f9f4e8;
+  background-image: radial-gradient(#e8d9c5 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+.certificate-container {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.certificate-border {
+  border: 15px solid #8b4513;
+  background-color: #fffaf0;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+}
+
+.corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+}
+
+.corner-tl {
+  top: -5px;
+  left: -5px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M0,0 C50,50 50,50 100,0 L100,30 C60,50 60,50 30,100 L0,100 Z"/></svg>');
+}
+
+.corner-tr {
+  top: -5px;
+  right: -5px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,0 C50,50 50,50 0,0 L0,30 C40,50 40,50 70,100 L100,100 Z"/></svg>');
+}
+
+.corner-bl {
+  bottom: -5px;
+  left: -5px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M0,100 C50,50 50,50 0,0 L30,0 C50,40 50,40 100,70 L100,100 Z"/></svg>');
+}
+
+.corner-br {
+  bottom: -5px;
+  right: -5px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%238B4513" d="M100,100 C50,50 50,50 100,0 L70,0 C50,40 50,40 0,70 L0,100 Z"/></svg>');
+}
+
+.certificate-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  color: #5a3921;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 15px;
+  background: linear-gradient(to right, #8b4513, #c0a080, #8b4513);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.seal {
+  width: 70px;
+  height: 70px;
+  border: 2px double #c0a080;
+  border-radius: 50%;
+  background: #fffaf0 url("download (1).jfif") center/cover no-repeat;
+  position: relative;
+  box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
+}
+
+.seal::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #c0a080;
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.intro,
+.declaration,
+.location {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.couple-names {
+  margin: 2rem 0;
+  position: relative;
+}
+
+.couple-names::before,
+.couple-names::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c0a080, transparent);
+}
+
+.couple-names::before {
+  top: -15px;
+}
+
+.couple-names::after {
+  bottom: -15px;
+}
+
+.name h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: #5a3921;
+  border-bottom: 1px solid #e0c9b1;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 0.9rem;
+  color: #8b4513;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.and {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.5rem;
+  color: #c0a080;
+  margin: 0 1rem;
+  position: relative;
+  top: -0.5rem;
+}
+
+.date,
+.location span {
+  font-weight: bold;
+  color: #8b4513;
+}
+
+.officiant {
+  margin: 1.5rem 0;
+  position: relative;
+  display: inline-block;
+  padding: 0 1.5rem;
+}
+
+.officiant::before,
+.officiant::after {
+  content: "✒";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c0a080;
+  font-size: 1rem;
+}
+
+.officiant::before {
+  left: 0;
+}
+
+.officiant::after {
+  right: 0;
+}
+
+.officiant span {
+  font-weight: bold;
+  color: #5a3921;
+  text-decoration: underline;
+  text-decoration-color: #c0a080;
+}
+
+.witness-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  border-top: 1px solid #e0c9b1;
+  padding-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.witness-title {
+  font-size: 0.9rem;
+  color: #8b4513;
+}
+
+.signature-line {
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #000, transparent);
+  margin: 0 auto 0.25rem;
+}
+
+.certificate-number {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.certificate-number span {
+  font-weight: bold;
+  color: #5a3921;
+}
+
+/* Passport Photo Styles */
+.photo-container {
+  width: 120px;
+  height: 150px;
+  border: 2px solid #8b4513;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto 10px;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: #999;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .certificate-border {
+    padding: 1.5rem;
+    border-width: 10px;
+  }
+
+  .certificate-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .seal {
+    width: 60px;
+    height: 60px;
+  }
+
+  .name h2 {
+    font-size: 1.5rem;
+  }
+
+  .and {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    display: block;
+    top: 0;
+  }
+
+  .couple-names {
+    flex-direction: column;
+  }
+
+  .photo-container {
+    width: 100px;
+    height: 125px;
+  }
+}

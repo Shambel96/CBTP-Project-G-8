@@ -4,11 +4,15 @@ include("db_connection.php");
 $password = '111222';
 
 // Hash the password
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
+/* $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+ */
 // SQL statement to insert into the users table
-$sql = "INSERT INTO users (first_name, last_name, phone, password, role) 
-VALUES ('shambel', 'dechu', '0909090909', '$hashed_password', 'admin')";
+$sql = "ALTER TABLE applications
+ADD CONSTRAINT fk_applications_user
+FOREIGN KEY (user_id) REFERENCES users(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;";
+
 
 if (mysqli_query($conn, $sql)) {
     echo "User added successfully!";

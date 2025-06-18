@@ -1,0 +1,26 @@
+from PIL import Image
+import numpy as np
+
+# Load the image
+image_path = "/mnt/data/0f2d2d90-bf66-4db6-a41a-171e18c725f9.png"
+image = Image.open(image_path).convert("RGBA")
+
+# Convert image to numpy array
+data = np.array(image)
+
+# Create a mask for the grid background (light gray lines on white)
+# We'll remove pixels that are nearly white (background)
+r, g, b, a = data[:,:,0], data[:,:,1], data[:,:,2], data[:,:,3]
+mask = (r > 200) & (g > 200) & (b > 200)
+
+# Set alpha to 0 for background pixels
+data[mask] = [255, 255, 255, 0]
+
+# Convert back to image
+cleaned_image = Image.fromarray(data)
+
+# Save the cleaned image
+output_path = "/mnt/data/cleaned_logo.png"
+cleaned_image.save(output_path)
+
+output_path

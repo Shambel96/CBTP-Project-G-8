@@ -35,7 +35,7 @@ body {
 section {
   max-width: 70%;
   background: white;
-  margin: 100px auto 50px;
+  margin: 0 auto;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -95,4 +95,90 @@ footer {
   padding: 20px 0;
   height: 100px;
   font-weight: 500;
+}
+
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.review-table th,
+.review-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.review-table th {
+  background: #f7f7f7;
+  width: 30%;
+}
+
+.review-photo {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.review-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Add this to your css/IDuserRegister.css or inside a <styl> tag */
+
+/* Cascade for review actions (Edit & Confirm) */
+.review-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.review-actions .btn {
+  min-width: 120px;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.review-actions .btn-warning {
+  background: #ffc107;
+  color: #222;
+}
+
+.review-actions .btn-warning:hover {
+  background: #e0a800;
+  color: #fff;
+}
+
+.review-actions .btn-success {
+  background: #28a745;
+  color: #fff;
+}
+
+.review-actions .btn-success:hover {
+  background: #218838;
+}
+
+/* Style for the Submit button on the form */
+input[type="submit"][name="submit_registration"] {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="submit"][name="submit_registration"]:hover {
+  background: #0056b3;
 }

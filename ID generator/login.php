@@ -4,10 +4,12 @@ include("db_connection.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+session_start();
+$errors = [];
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $errors = [];
 
     // Validate inputs
     if (empty($phone)) {
@@ -28,8 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Verify password
             if (password_verify($password, $user['password'])) {
-                session_start();
-                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['id'] = $user['id'];
                 $_SESSION['first_name'] = $user['first_name'];
                 $_SESSION['last_name'] = $user['last_name'];
                 $_SESSION['phone'] = $user['phone'];
@@ -37,11 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // Check user role and redirect accordingly
                 if ($user['role'] === 'admin') {
-                    echo "<p style='color:green;'>Login successful! Welcome, Admin " . htmlspecialchars($user['first_name']) . ".</p>";
-                    header("Location: AdminDashboard.php"); // Redirect to the admin dashboard
+                    header("Location: Admin Dashboard/AdminDashboard.php");
+                } else if ($user['role'] === 'staff') {
+                    header("Location: Staff_Dashboard/staff_dashboard.php");
                 } else {
-                    echo "<p style='color:green;'>Login successful! Welcome, " . htmlspecialchars($user['first_name']) . ".</p>";
-                    header("Location: index.php"); // Redirect to the public user's page
+                    header("Location: UserProfile/User_Profile.php");
                 }
                 exit;
             } else {
@@ -52,9 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-    // Display validation errors
-    foreach ($errors as $error) {
-        echo "<p style='color:red;'>$error</p>";
+    // If there are errors, store them in session and redirect back to signin.php
+    if (!empty($errors)) {
+        $_SESSION['login_error'] = implode('<br>', $errors);
+        header("Location: signin.php");
+        exit;
     }
 }
 

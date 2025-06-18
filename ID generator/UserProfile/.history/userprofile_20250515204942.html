@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital ID - My Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">DigitalID</div>
+            <div class="user-nav">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="user-avatar" id="headerAvatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container profile-container">
+        <aside class="sidebar">
+            <div class="profile-card">
+                <div class="profile-avatar" id="profileAvatar">
+                    <i class="fas fa-user"></i>
+                    <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                </div>
+                <h3 class="profile-name">User Name</h3>
+                <p class="profile-role">Member</p>
+                <span class="verification-badge">
+                    <i class="fas fa-check-circle"></i> Verified
+                </span>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-id-card"></i> Digital ID
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-shield-alt"></i> Security
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-certificate"></i> Birth Certificates
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-ring"></i> Marriage Certificates
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cross"></i> Death Certificates
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-print"></i> Print
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">My Profile</h2>
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+
+            <div class="id-card-preview">
+                <div class="id-card-header">
+                    <div class="id-card-logo">DigitalID</div>
+                    <div class="id-card-type">STANDARD</div>
+                </div>
+                <div class="id-card-content">
+                    <div class="id-card-photo" id="idCardPhoto">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="id-card-details">
+                        <h3 class="id-card-name">User Name</h3>
+                        <div class="id-card-meta">
+                            <span>Member since: Jan 2023</span>
+                        </div>
+                        <div class="id-card-field">
+                            <div class="id-card-field-label">ID Number</div>
+                            <div class="id-card-field-value">DID-0000-0000-0000</div>
+                        </div>
+                        <div class="id-card-field">
+                            <div class="id-card-field-label">Date of Birth</div>
+                            <div class="id-card-field-value">DD Month YYYY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="id-card-footer">
+                    <div>Scan QR code to verify authenticity</div>
+                    <div class="id-card-qr">
+                        <i class="fas fa-qrcode fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+
+            <form class="profile-form" id="profileForm">
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+251 XX XXX XXXX">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="••••••••">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="••••••••">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Photo upload functionality
+            const profileAvatar = document.getElementById('profileAvatar');
+            const avatarUpload = document.getElementById('avatarUpload');
+            const headerAvatar = document.getElementById('headerAvatar');
+            const idCardPhoto = document.getElementById('idCardPhoto');
+            
+            profileAvatar.addEventListener('click', function() {
+                avatarUpload.click();
+            });
+            
+            avatarUpload.addEventListener('change', function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(event) {
+                        // Update profile avatar
+                        profileAvatar.innerHTML = '';
+                        const profileImg = document.createElement('img');
+                        profileImg.src = event.target.result;
+                        profileAvatar.appendChild(profileImg);
+                        
+                        // Update header avatar
+                        headerAvatar.innerHTML = '';
+                        const headerImg = document.createElement('img');
+                        headerImg.src = event.target.result;
+                        headerAvatar.appendChild(headerImg);
+                        
+                        // Update ID card photo
+                        idCardPhoto.innerHTML = '';
+                        const idImg = document.createElement('img');
+                        idImg.src = event.target.result;
+                        idCardPhoto.appendChild(idImg);
+                    };
+                    
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+            
+            // Form submission
+            const profileForm = document.getElementById('profileForm');
+            profileForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Profile updated successfully!');
+                // Here you would typically send the form data to a server
+            });
+        });
+    </script>
+</body>
+</html>

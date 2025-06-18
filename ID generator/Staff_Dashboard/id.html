@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificates and Residence ID Links</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .link-group {
+        margin-bottom: 20px;
+      }
+      .btn-generate {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Documents Links</h1>
+
+      <div class="link-group">
+        <h5>Certificates</h5>
+        <ul class="list-group">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <span>Birth Certificate</span>
+            <div>
+              <a
+                href="../Certificates/Birth_Certificate.php"
+                class="btn btn-primary"
+                target="_blank"
+                >View</a
+              >
+              <a
+                href="../Certificates/Birth_Certificate.php?action=generate"
+                class="btn btn-success btn-generate"
+                target="_blank"
+                >Generate</a
+              >
+            </div>
+          </li>
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <span>Marriage Certificate</span>
+            <div>
+              <a
+                href="../Certificates/marriage/Marriage.php"
+                class="btn btn-primary"
+                target="_blank"
+                >View</a
+              >
+              <a
+                href="../Certificates/marriage/Marriage.php?action=generate"
+                class="btn btn-success btn-generate"
+                target="_blank"
+                >Generate</a
+              >
+            </div>
+          </li>
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <span>Death Certificate</span>
+            <div>
+              <a
+                href="../Certificates/death certificate sample/death_certificate.php"
+                class="btn btn-primary"
+                target="_blank"
+                >View</a
+              >
+              <a
+                href="../Certificates/death certificate sample/death_certificate.php?action=generate"
+                class="btn btn-success btn-generate"
+                target="_blank"
+                >Generate</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="link-group">
+        <h5>Residence ID</h5>
+        <ul class="list-group">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <span>Residence ID</span>
+            <div>
+              <a href="../IDpage.php" class="btn btn-primary" target="_blank"
+                >View</a
+              >
+              <a
+                href="../IDpage.php?action=generate"
+                class="btn btn-success btn-generate"
+                target="_blank"
+                >Generate</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="alert alert-info mt-4">
+        <strong>Note:</strong> As staff, you can generate and view certificates
+        and IDs for residents using the buttons above.
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

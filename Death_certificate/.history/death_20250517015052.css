@@ -1,0 +1,174 @@
+/* death.css - Updated for Left Info/Right Stamp Layout */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Form Styles (unchanged) */
+.death-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.death-form h1 {
+    text-align: center;
+    color: #8B0000;
+    margin-bottom: 30px;
+}
+
+/* Certificate Styles */
+.certificate {
+    width: 800px;
+    max-width: 100%;
+    margin: 30px auto;
+    padding: 50px;
+    background: white;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    border: 15px double #8B0000;
+    position: relative;
+}
+
+/* Memorial Section (unchanged) */
+.memorial-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.photo-frame {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 5px solid #f0f0f0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Certificate Container Layout */
+.certificate-container {
+    display: flex;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+/* Information Section (LEFT SIDE) */
+.info-section {
+    flex: 1;
+    padding-right: 20px;
+    border-right: 1px dashed #ccc;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.info-label {
+    font-weight: bold;
+    width: 160px;
+    color: #555;
+}
+
+.info-value {
+    flex-grow: 1;
+    color: #333;
+}
+
+/* Stamp Section (RIGHT SIDE) */
+.stamp-section {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stamp-image {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+    border: 2px solid #8B0000;
+    padding: 5px;
+    background: white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.stamp-text {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    width: 100%;
+}
+
+.stamp-text p {
+    margin: 5px 0;
+}
+
+.amharic-text {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.signature-line {
+    margin: 10px 0;
+    border-top: 1px solid #000;
+    width: 100%;
+}
+
+.quote {
+    font-style: italic;
+    color: #8B0000;
+    margin: 10px 0;
+}
+
+.dear-life {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.bottom-text {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Buttons and Print Styles (unchanged) */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #8B0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+    .certificate {
+        box-shadow: none;
+        border: 15px double #8B0000;
+        page-break-after: always;
+    }
+    .no-print {
+        display: none;
+    }
+    .stamp-image {
+        box-shadow: none;
+    }
+}

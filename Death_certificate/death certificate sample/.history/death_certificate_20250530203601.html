@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Certificate</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .certificate {
+            width: 800px;
+            background-color: white;
+            border: 15px double #333;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-size: 22px;
+            margin: 10px 0 0;
+            font-weight: normal;
+        }
+        
+        .seal {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .content {
+            margin-top: 20px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+        
+        .info-label {
+            width: 200px;
+            font-weight: bold;
+        }
+        
+        .info-value {
+            flex: 1;
+            border-bottom: 1px dotted #333;
+            padding-left: 10px;
+        }
+        
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .signature {
+            text-align: center;
+            width: 200px;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            padding-top: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            font-style: italic;
+        }
+        
+        .certificate-number {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="certificate-number">Certificate No: DC-2023-0001</div>
+        
+        <div class="header">
+            <h1>Death Certificate</h1>
+            <h2>State of [State Name]</h2>
+            <h2>Department of Vital Records</h2>
+        </div>
+        
+        <div class="seal">
+            Official Seal<br>
+            [State Name]
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">Deceased Information</div>
+                
+                <div class="info-row">
+                    <div class="info-label">Full Name:</div>
+                    <div class="info-value">John Michael Doe</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Date of Birth:</div>
+                    <div class="info-value">January 15, 1950</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Place of Birth:</div>
+                    <div class="info-value">Springfield, Illinois</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Sex:</div>
+                    <div class="info-value">Male</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Social Security Number:</div>
+                    <div class="info-value">XXX-XX-1234</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Death Information</div>
+                
+                <div class="info-row">
+                    <div class="info-label">Date of Death:</div>
+                    <div class="info-value">November 22, 2023</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Time of Death:</div>
+                    <div class="info-value">14:35 hours</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Place of Death:</div>
+                    <div class="info-value">Springfield General Hospital, 123 Medical Way, Springfield, IL</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Cause of Death:</div>
+                    <div class="info-value">Acute myocardial infarction due to coronary artery disease</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Manner of Death:</div>
+                    <div class="info-value">Natural</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Personal Details</div>
+                
+                <div class="info-row">
+                    <div class="info-label">Marital Status:</div>
+                    <div class="info-value">Married</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Spouse's Name:</div>
+                    <div class="info-value">Jane Elizabeth Doe</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Father's Name:</div>
+                    <div class="info-value">Robert William Doe</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Mother's Name:</div>
+                    <div class="info-value">Mary Anne Doe (née Smith)</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Occupation:</div>
+                    <div class="info-value">Retired School Teacher</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Usual Residence:</div>
+                    <div class="info-value">456 Oak Street, Springfield, IL 62704</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Funeral Information</div>
+                
+                <div class="info-row">
+                    <div class="info-label">Funeral Home:</div>
+                    <div class="info-value">Springfield Memorial Chapel</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Date of Burial/Cremation:</div>
+                    <div class="info-value">November 28, 2023</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Place of Burial:</div>
+                    <div class="info-value">Oak Ridge Cemetery, Springfield, IL</div>
+                </div>
+            </div>
+            
+            <div class="signature-area">
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <div>Attending Physician</div>
+                    <div>Dr. Sarah Johnson, MD</div>
+                    <div>License #: IL123456</div>
+                </div>
+                
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <div>Medical Examiner/Coroner</div>
+                    <div>Dr. Michael Brown, MD</div>
+                    <div>License #: IL654321</div>
+                </div>
+                
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <div>Registrar</div>
+                    <div>Date: November 25, 2023</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            This is an official document issued by the State of [State Name]. Any alteration makes this document invalid.
+        </div>
+    </div>
+</body>
+</html>

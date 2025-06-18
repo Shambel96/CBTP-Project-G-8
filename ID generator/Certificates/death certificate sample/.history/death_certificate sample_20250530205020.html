@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Death Certificate</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .certificate-container {
+            width: 800px;
+            background-color: white;
+            border: 15px double #333;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .certificate-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+        }
+        
+        .certificate-title {
+            font-size: 28px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .certificate-subtitle {
+            font-size: 22px;
+            margin: 10px 0 0;
+            font-weight: normal;
+        }
+        
+        .official-seal {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .deceased-photo {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: 100px;
+            height: 120px;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            overflow: hidden;
+        }
+        
+        .deceased-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .certificate-content {
+            margin-top: 20px;
+        }
+        
+        .certificate-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 8px;
+        }
+        
+        .info-label {
+            width: 200px;
+            font-weight: bold;
+        }
+        
+        .info-value {
+            flex: 1;
+            border-bottom: 1px dotted #333;
+            padding-left: 10px;
+        }
+        
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .signature {
+            text-align: center;
+            width: 200px;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            padding-top: 5px;
+        }
+        
+        .certificate-footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            font-style: italic;
+        }
+        
+        .certificate-number {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 14px;
+        }
+        
+        .memorial-message {
+            text-align: center;
+            font-style: italic;
+            margin: 30px 0;
+            padding: 10px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        
+        .kebele-info {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="certificate-number">Certificate No: <span id="cert-number">DC-2023-0001</span></div>
+        
+        <div class="deceased-photo">
+            <img id="deceased-photo-img" src="placeholder.jpg" alt="Deceased Photo">
+        </div>
+        
+        <div class="certificate-header">
+            <h1 class="certificate-title">Death Certificate</h1>
+            <h2 class="certificate-subtitle">Republic of Ethiopia</h2>
+            <h2 class="certificate-subtitle">Vital Events Registration Agency</h2>
+        </div>
+        
+        <div class="official-seal">
+            Official Seal<br>
+            [Kebele Stamp]
+        </div>
+        
+        <div class="certificate-content">
+            <div class="certificate-section">
+                <div class="section-title">Deceased Information</div>
+                
+                <div class="info-row">
+                    <div class="info-label">Full Name:</div>
+                    <div class="info-value" id="full-name">John Michael Doe</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Date of Birth:</div>
+                    <div class="info-value" id="dob">January 15, 1950</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Date of Death:</div>
+                    <div class="info-value" id="dod">November 22, 2023</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Place of Death:</div>
+                    <div class="info-value" id="place-death">Addis Ababa, Ethiopia</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Cause of Death:</div>
+                    <div class="info-value" id="cause-death">Natural Causes</div>
+                </div>
+            </div>
+            
+            <div class="certificate-section">
+                <div class="section-title">Family Information</div>
+                
+                <div class="info-row">
+                    <div class="info-label">Father's Name:</div>
+                    <div class="info-value" id="father-name">Robert William Doe</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Mother's Name:</div>
+                    <div class="info-value" id="mother-name">Mary Anne Doe (née Smith)</div>
+                </div>
+            </div>
+            
+            <div class="memorial-message">
+                <div id="memorial-line1">Loved one's wonderful and gentle soul will</div>
+                <div id="memorial-line2">forever remain in our hearts.</div>
+            </div>
+            
+            <div class="kebele-info">
+                <div class="info-row">
+                    <div class="info-label">Issuing Kebele:</div>
+                    <div class="info-value" id="kebele-name">Bole Sub-city, Kebele 03</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Date Issued:</div>
+                    <div class="info-value" id="issue-date">November 25, 2023</div>
+                </div>
+            </div>
+            
+            <div class="signature-area">
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <div>Authorized Official</div>
+                    <div id="official-name">Ato Mekonnen Gebre</div>
+                    <div>Registration Officer</div>
+                </div>
+                
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <div>Date</div>
+                    <div id="signature-date">November 25, 2023</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="certificate-footer">
+            This is an official document issued by the Government of Ethiopia. Any alteration makes this document invalid.
+        </div>
+    </div>
+</body>
+</html>

@@ -18,6 +18,7 @@ img {
   border-radius: 7px;
   margin: 20px auto; /* Center the containers */
   position: relative; /* Allows absolute positioning of children */
+  border: 1px solid black;
   padding: 5px;
   overflow: hidden; /* Enable scrolling for overflow content */
 }

@@ -8,7 +8,7 @@ body {
   font-family: Arial, sans-serif;
   width: 100%;
 }
-.header {
+/* .header {
   background-color: #1e3a5f;
   color: white;
   width: 100%;
@@ -24,7 +24,7 @@ body {
 }
 
 /* Navigation styles */
-.nav-container ul {
+/* .nav-container ul {
   list-style-type: none;
   display: flex;
   align-items: center;
@@ -42,9 +42,10 @@ body {
 .nav-container .active {
   border-bottom: 2px solid yellow;
   padding-bottom: 2px;
-}
+} */
 
 /* Dropdown menu styles */
+/*
 .position-relative {
   position: relative;
 }
@@ -79,10 +80,10 @@ body {
 .services-toggle:hover + .dropdown-menu,
 .dropdown-menu:hover {
   display: block;
-}
+} */
 
 /* Button styles */
-.buttons-in-header button {
+/* .buttons-in-header button {
   border-radius: 5px;
   border: none;
   text-transform: capitalize;
@@ -93,7 +94,8 @@ body {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
+} */
+
 /* cascading of the first section
  */
 .first-section {
@@ -163,4 +165,66 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.faq-wrapper {
+  margin-top: 30px;
+}
+.faq-item {
+  margin-bottom: 15px;
+}
+.faq-answer {
+  display: none; /* Initially hide answers */
+  margin-top: 10px;
+  color: #333;
+  font-style: italic;
+}
+.faq-button {
+  width: 100%;
+  text-align: left;
+  background-color: #f4f4f4;
+  color: black;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.faq-button:hover {
+  color: white;
+  background-color: #0056b3;
+}
+
+.services-hover-footer {
+  position: relative;
+}
+.services-hover-footer > a {
+  position: relative;
+  z-index: 2;
+}
+.services-sidebar-footer {
+  display: none;
+  min-width: 200px;
+  left: 100%;
+  top: 0;
+  z-index: 100;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 16px rgba(67, 97, 238, 0.08);
+}
+.services-hover-footer:hover .services-sidebar-footer,
+.services-hover-footer:focus-within .services-sidebar-footer {
+  display: block !important;
+}
+.services-sidebar-footer ul li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #222 !important;
+  transition: background 0.2s, color 0.2s;
+}
+.services-sidebar-footer ul li a:hover {
+  background-color: #4361ee;
+  color: #fff !important;
+  border-radius: 5px;
 }
