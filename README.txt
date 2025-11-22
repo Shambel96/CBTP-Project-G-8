@@ -49,7 +49,7 @@ password....111111
 password ...111111 
 
 
-Note: The system is not fully functional yet, so you'll need to work on the missing components to complete it. 
+### Note: The system is not fully functional yet, so you'll need to work on the missing components to complete it. 
 This project will serve as a portfolio piece for your internship application to help you get accepted. 
 If you have any doubts, feel free to contact me anytime. However, I encourage all of you to work on it 
 as much as possible to develop your skills.
