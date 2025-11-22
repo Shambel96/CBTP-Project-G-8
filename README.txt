@@ -1,4 +1,4 @@
-CBTP Project Overview
+### CBTP Project Overview
 Our system has three main dashboards:
 
 1. Admin Dashboard
@@ -7,7 +7,7 @@ Our system has three main dashboards:
 
 3. Users Dashboard
 
-This is the final version of our CBTP project. You can import the database and test it yourself—everything is fully functional on our website.
+This is the final version of our CBTP project. You can import the database and test it yourselfï¿½everything is fully functional on our website.
 If you have any questions about how it works, feel free to reach out to me anytime.
 
 How the System Works
