@@ -7,8 +7,12 @@ ini_set('display_errors', 1);
 $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-  $password = mysqli_real_escape_string($conn, $_POST['password']);
+  // Ensure DB connection exists before using it
+  if (!isset($conn) || !$conn) {
+    $errors[] = "Database connection not available. Please contact the administrator.";
+  } else {
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
   // Validate inputs
   if (empty($phone)) {
@@ -37,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Redirect based on role
         if ($user['role'] === 'admin') {
-          header("Location: Admin Dashboard/AdminDashboard.php");
+          header("Location: Admin dashboard/AdminDashboard.php");
         } else if ($user['role'] === 'staff') {
           header("Location: Staff_Dashboard/staff_dashboard.php");
         } else if ($user['role'] === 'public') {
@@ -53,9 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $errors[] = "No account found with this phone number.";
     }
   }
-}
-
-mysqli_close($conn);
+  }
+  
+mysqli_close($conn);}
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +68,7 @@ mysqli_close($conn);
 <head>
   <meta charset="UTF-8" />
   <title>Login Page</title>
-  <link rel="stylesheet" href="css/signin-style.css" />
+  <link rel="stylesheet" href="Css/signin-style.css" />
   <style>
     body {
       font-family: 'Times New Roman', Times, serif;
