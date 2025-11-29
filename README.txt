@@ -29,7 +29,7 @@ Once the application is processed, the applicant receives a notification in thei
 
 If accepted, they can proceed to the next step to obtain their Certificate or Residence ID, depending on their request.
 
-4. Document Generation
+## 4. Document Generation
 
 Approved applicants can download and print their Certificate or Residence ID in PDF format.
 
