@@ -23,7 +23,7 @@ They review the request and verify whether the applicant exists in the residents
 
 Based on the verification result, the Admin/Staff accepts or rejects the application.
 
-3. Applicant Notification
+## 3. Applicant Notification
 
 Once the application is processed, the applicant receives a notification in their "Application Checker" sidebar.
 
