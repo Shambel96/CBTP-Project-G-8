@@ -11,7 +11,7 @@ This is the final version of our CBTP project. You can import the database and t
 If you have any questions about how it works, feel free to reach out to me anytime.
 
 How the System Works
-1. Application Request
+## 1. Application Request
 
 Residents submit requests for either a Certificate or a Residence ID.
 
