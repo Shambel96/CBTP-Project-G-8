@@ -15,7 +15,7 @@ How the System Works
 
 Residents submit requests for either a Certificate or a Residence ID.
 
-2. Admin/Staff Notification & Review
+## 2. Admin/Staff Notification & Review
 
 The Admin/Staff receives a notification in the "Manage Request" sidebar menu, indicating a new application request.
 
