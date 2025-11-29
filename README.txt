@@ -41,7 +41,7 @@ Use the following phone and password to login
 ### 1. Admin phone number to login ...0909090909
 password....111111
 
-2. Staff phone number to login....0911111111
+### 2. Staff phone number to login....0911111111
 password....111111
 
 
