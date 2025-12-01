@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['last_name'] = $user['last_name'];
         $_SESSION['phone'] = $user['phone'];
         $_SESSION['role'] = $user['role'];
-// Maal godhu wayya amma kan 
+// Maal godhu wayya  kan 
         // Redirect based on role
         if ($user['role'] === 'admin') {
           header("Location: Admin dashboard/AdminDashboard.php");
