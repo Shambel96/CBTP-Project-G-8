@@ -60,5 +60,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 }
-
+// clsoing session
 mysqli_close($conn);
