@@ -105,6 +105,18 @@ mysqli_close($conn);}
         transform: translateY(0);
       }
     }
+    /* Inline error message style for inputs */
+    .error {
+      color: #b02a37;
+      font-size: 0.9rem;
+      display: block;
+      margin-top: 6px;
+      min-height: 1.1em;
+    }
+    .input-invalid {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 0 3px rgba(220,53,69,0.06);
+    }
   </style>
 </head>
 
