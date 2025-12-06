@@ -182,6 +182,17 @@ $conn->close();
   <div class="dashboard-container">
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
+      <div class="sidebar-user" style="padding:0 20px 20px 20px; border-bottom:1px solid #f1f1f1; margin-bottom:10px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 0;">
+          <div style="width:48px;height:48px;border-radius:50%;background:#f0f2f5;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gray);">
+            <i class="fas fa-user"></i>
+          </div>
+          <div>
+            <div style="font-weight:600;"><?php echo htmlspecialchars($first_name); ?></div>
+            <div style="font-size:12px;color:var(--gray);"><?php echo htmlspecialchars($phone); ?></div>
+          </div>
+        </div>
+      </div>
       <ul class="sidebar-menu">
         <li class="menu-item">
           <a href="Welcome.php" target="contentFrame" class="menu-link active">
@@ -245,6 +256,12 @@ $conn->close();
                 <?php echo $notif_badge_count; ?>
               </span>
             <?php endif; ?>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="../Admin dashboard/Logout.php" class="menu-link" target="_top">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
           </a>
         </li>
       </ul>
