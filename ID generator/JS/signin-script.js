@@ -74,3 +74,70 @@ function resetForm() {
   document.getElementById("phoneError").textContent = "";
   document.getElementById("passwordError").textContent = "";
 }
+
+// Live validation for phone input while typing
+document.addEventListener('DOMContentLoaded', function () {
+  const phoneInput = document.getElementById('phone');
+  const phoneError = document.getElementById('phoneError');
+
+  if (!phoneInput) return;
+
+  const phoneRegex = /^(09|07)\d{0,8}$/; // allow partial typing (0..8 more digits after prefix)
+
+  phoneInput.addEventListener('input', function () {
+    const value = phoneInput.value.trim();
+
+    // Clear prior styles
+    phoneInput.classList.remove('input-invalid');
+    phoneError.textContent = '';
+
+    if (value === '') {
+      // Optionally show a hint while typing
+      phoneError.textContent = '';
+      return;
+    }
+
+    // If user started typing, give immediate feedback about prefix
+    if (!/^(09|07)/.test(value)) {
+      phoneError.textContent = 'Phone must start with 09 or 07.';
+      phoneInput.classList.add('input-invalid');
+      return;
+    }
+
+    // If prefix is correct but length too long or contains non-digits, show message
+    if (!/^\d+$/.test(value)) {
+      phoneError.textContent = 'Phone must contain only digits.';
+      phoneInput.classList.add('input-invalid');
+      return;
+    }
+
+    if (value.length > 10) {
+      phoneError.textContent = 'Phone number cannot be more than 10 digits.';
+      phoneInput.classList.add('input-invalid');
+      return;
+    }
+
+    // If exactly 10 digits and matches full pattern, mark valid
+    if (/^(09|07)\d{8}$/.test(value)) {
+      phoneError.textContent = '';
+      phoneInput.classList.remove('input-invalid');
+      return;
+    }
+
+    // Otherwise, show how many more digits are needed
+    const needed = 10 - value.length;
+    if (needed > 0) {
+      phoneError.textContent = `Enter ${needed} more digit${needed > 1 ? 's' : ''}.`;
+    }
+  });
+
+  // On blur, if invalid show full validation message
+  phoneInput.addEventListener('blur', function () {
+    const v = phoneInput.value.trim();
+    if (v === '') return;
+    if (!/^(09|07)\d{8}$/.test(v)) {
+      phoneError.textContent = 'Phone number must start with 09 or 07 and be 10 digits long.';
+      phoneInput.classList.add('input-invalid');
+    }
+  });
+});
