@@ -182,3 +182,90 @@ input[type="submit"][name="submit_registration"] {
 input[type="submit"][name="submit_registration"]:hover {
   background: #0056b3;
 }
+
+/* Responsive rules for mobile screens <= 600px */
+@media (max-width: 600px) {
+  header {
+    height: auto;
+    padding: 10px 8px;
+  }
+
+  header ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
+  section {
+    max-width: 95%;
+    margin: 12px auto;
+    padding: 14px;
+    box-shadow: none;
+  }
+
+  table {
+    display: block;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  td {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="tel"],
+  select {
+    width: 100%;
+    padding: 10px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    float: none;
+    padding: 12px;
+  }
+
+  .review-photo {
+    max-width: 90px;
+    max-height: 90px;
+  }
+
+  .review-table th,
+  .review-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .review-table th {
+    background: transparent;
+    font-weight: 600;
+    padding-top: 8px;
+  }
+
+  .review-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .review-actions .btn {
+    min-width: auto;
+    width: 100%;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  .register-form h2 {
+    font-size: 1.2rem;
+  }
+}
