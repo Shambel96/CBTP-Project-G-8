@@ -85,6 +85,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       border: 1px solid black;
       padding: 10px;
     }
+    /* Responsive styles for small screens (mobile) */
+    @media (max-width: 600px) {
+      .container {
+        margin-top: 16px;
+        max-width: calc(100% - 20px);
+        padding: 14px;
+        border: none;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+      }
+
+      .form-group label {
+        font-size: 0.95rem;
+      }
+
+      .form-control {
+        font-size: 0.95rem;
+        padding: 8px 10px;
+      }
+
+      .btn {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 
