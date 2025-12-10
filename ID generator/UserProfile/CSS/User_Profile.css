@@ -398,6 +398,207 @@ body {
   font-size: 1.2rem;
 }
 
+/* Mobile-specific adjustments for screens <= 600px */
+@media (max-width: 600px) {
+  /* Header: stack logo and controls */
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    padding: 0;
+  }
+
+  .logo .home {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 0.9rem;
+  }
+
+  .user-controls {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .notification-bell {
+    order: 2;
+  }
+
+  .notification-badge {
+    top: -6px;
+    right: -6px;
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+
+  /* Sidebar becomes full-width block above main content */
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 10px 12px;
+    box-shadow: none;
+    border-right: none;
+  }
+
+  .sidebar-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: stretch;
+  }
+
+  .menu-item {
+    margin-bottom: 0;
+  }
+
+  .menu-link {
+    padding: 10px 12px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
+    border-radius: 6px;
+  }
+
+  .menu-link i {
+    margin-right: 6px;
+    font-size: 0.95rem;
+  }
+
+  /* Main content: remove left margin and make iframe easier to view */
+  .main-content {
+    flex: 1;
+    margin-left: 0;
+    padding: 12px;
+    min-height: calc(100vh - 180px);
+  }
+
+  .main-content iframe {
+    width: 100%;
+    height: calc(100vh - 220px);
+    border: none;
+  }
+
+  /* User dropdown moves to normal flow */
+  .user-dropdown {
+    position: static;
+    top: auto;
+    right: auto;
+    width: 100%;
+    display: none; /* keep hidden until hovered/tapped */
+    box-shadow: none;
+    margin-top: 6px;
+  }
+
+  .user-profile:hover .user-dropdown {
+    display: block;
+  }
+
+  /* Smaller avatar */
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  /* Cards and dashboard cards stack */
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-info-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .profile-avatar-section {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-avatar {
+    margin: 0 auto 12px;
+  }
+
+  /* Improve touch targets */
+  .menu-link, .btn, input[type="submit"] {
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  /* Hamburger button */
+  .hamburger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-left: 8px;
+    align-self: center;
+  }
+
+  .hamburger-line {
+    display: block;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    width: 100%;
+  }
+
+  /* Off-canvas sidebar initial state */
+  .sidebar {
+    position: fixed;
+    left: -280px;
+    top: 60px;
+    width: 260px;
+    height: calc(100% - 60px);
+    background: white;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.12);
+    z-index: 1002;
+    transition: left 0.25s ease;
+    overflow-y: auto;
+  }
+
+  /* When body has sidebar-open the sidebar slides in */
+  body.sidebar-open .sidebar {
+    left: 0;
+  }
+
+  /* Overlay that darkens the page when sidebar is open */
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0 0 0 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  body.sidebar-open .sidebar-overlay {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Ensure header stays above overlay */
+  .dashboard-header { z-index: 1003; }
+}
+
 .card-icon.residence {
   background-color: rgba(67, 97, 238, 0.1);
   color: var(--primary);
