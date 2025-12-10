@@ -157,6 +157,12 @@ $conn->close();
       <span>GINJO</span>
       <a class="home" href="../index.php">Home</a>
     </div>
+    <!-- Hamburger for mobile -->
+    <button id="sidebarToggle" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
     <div class="user-controls">
       <div class="notification-bell" id="notifBell" tabindex="0">
         <i class="fas fa-bell<?php echo ($notif_count > 0) ? ' notif-alert' : ''; ?>"></i>
@@ -271,7 +277,41 @@ $conn->close();
       <iframe name="contentFrame" src="Welcome.php" style="width:100%;height:100%;border:none;"></iframe>
     </main>
   </div>
+  <!-- Overlay shown when sidebar is open on mobile -->
+  <div id="sidebarOverlay" class="sidebar-overlay" tabindex="-1" aria-hidden="true"></div>
   <script>
+    // Sidebar toggle for mobile (hamburger)
+    (function(){
+      const toggle = document.getElementById('sidebarToggle');
+      const overlay = document.getElementById('sidebarOverlay');
+      const body = document.body;
+      function openSidebar(){
+        body.classList.add('sidebar-open');
+        toggle.setAttribute('aria-expanded','true');
+        overlay.setAttribute('aria-hidden','false');
+      }
+      function closeSidebar(){
+        body.classList.remove('sidebar-open');
+        toggle.setAttribute('aria-expanded','false');
+        overlay.setAttribute('aria-hidden','true');
+      }
+      if(toggle){
+        toggle.addEventListener('click', function(e){
+          if(body.classList.contains('sidebar-open')) closeSidebar(); else openSidebar();
+        });
+      }
+      if(overlay){
+        overlay.addEventListener('click', closeSidebar);
+      }
+      // Close sidebar when a sidebar link is clicked (mobile)
+      document.addEventListener('click', function(e){
+        const link = e.target.closest('.menu-link');
+        if(link && window.innerWidth <= 600){
+          closeSidebar();
+        }
+      });
+    })();
+
     // Remove notifications when user clicks the bell or notification area (optional, can be removed)
     document.getElementById('notifBell').addEventListener('click', function() {
       const notifBadge = document.getElementById('notifBadge');
